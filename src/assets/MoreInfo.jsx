@@ -53,7 +53,7 @@ export default function MoreInfo(props) {
                         </div>
                         <div id="buttons" className="">
                             {/* {console.log(props.website, props.name)} */}
-                            <button onClick={() => openInNewTab(props.website)} className="w-23 h-auto text-white bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" >⬈ Visit
+                            <button onClick={() => openInNewTab(props.website)} className="w-23 h-auto text-white bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-1" >⬈ Visit
                             </button>
                             <button className="w-12 h-auto text-white bg-red-500 hover:bg-red-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">♡</button>
                         </div>
