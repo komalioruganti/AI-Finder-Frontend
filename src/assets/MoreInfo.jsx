@@ -41,7 +41,7 @@ export default function MoreInfo(props) {
                             </ol>
                         </nav>
                         <div className="flex items-center">
-                            <img src={props.imgSrc} alt="Logo" className="h-32 w-32 mx-auto my-1 rounded-lg inline" />
+                            <img src={props.imgSrc} alt="Logo" className="h-32 w-32 mx-auto my-1 inline" />
                             <div className="ml-[15px] mt-1 overflow-y-hidden">
                                 <h1><strong className="text-xl dark:text-white">{props.name}</strong></h1>
 
