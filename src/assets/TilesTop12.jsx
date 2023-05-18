@@ -1,20 +1,5 @@
-import { useState, useEffect } from 'react';
+export default function TilesTop12({aiTools}) {
 
-export default function TilesTop12() {
-
-    useEffect(() => {
-        getAiTools()
-    }, [])
-
-    const [aiTools, setAITools] = useState([])
-
-    function getAiTools() {
-        fetch("http://localhost:5000/api/getAllAiTools")
-            .then((res) => res.json())
-            .then(data => {
-                setAITools(data)
-            })
-    }
     const newArray = aiTools.map((item,index) => {
         return (
             

@@ -129,7 +129,7 @@ export default function Body() {
                             </h2>
                             <div className="w-full h-max">
                                 <div className="flex flex-wrap gap-x-5 gap-y-1">
-                                    <TilesTop12 />
+                                    <TilesTop12 aiTools = {aiTools}/>
                                 </div>
                             </div>
 
