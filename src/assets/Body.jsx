@@ -2,12 +2,8 @@ import TilesTop12 from "./TilesTop12"
 import TilesNewlyAdded from "./TilesNewlyAdded"
 import { useState, useEffect } from 'react';
 
-export default function Body() {
-    useEffect(() => {
-        getAiTools()
-    }, [])
-
-    const [aiTools, setAITools] = useState([])
+export default function Body({aiTools}) {
+    
     const [searchQuery, setSearchQuery] = useState("")
     const [filteredAITools, setFilteredAITools] = useState([])
 
@@ -15,18 +11,9 @@ export default function Body() {
         var random_num = Math.floor(Math.random() * aiTools.length);
         setSearchQuery(aiTools[random_num].name)
     }
-
-    function getAiTools() {
-        fetch("http://localhost:5000/api/getAllAiTools")
-            .then((res) => res.json())
-            .then(data => {
-                setAITools(data)
-
-            })
-    }
     const search = (e) => {
         e.preventDefault()
-        fetch(`http://localhost:5000/api/getAiToolByNameAndTags/?name=` + searchQuery)
+        fetch(`https://ai-finder-api-p4jq.onrender.com/api/getAiToolByNameAndTags/?name=` + searchQuery)
             .then((res) => res.json())
             .then(data => {
                 setFilteredAITools(data)

@@ -15,7 +15,7 @@ function App() {
   const [aiTools, setAITools] = useState([])
 
   function getAiTools() {
-    fetch("http://localhost:5000/api/getAllAiTools")
+    fetch("https://ai-finder-api-p4jq.onrender.com/api/getAllAiTools")
       .then((res) => res.json())
       .then(data => {
         setAITools(data)
@@ -35,7 +35,7 @@ function App() {
       <Header />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Body />}></Route>
+          <Route path="/" element={<Body aiTools = {aiTools}/>}></Route>
           {AIToolroutes}
         </Routes>
       </BrowserRouter>
