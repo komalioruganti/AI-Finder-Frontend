@@ -13,6 +13,7 @@ export default function Body({aiTools}) {
         setSearchQuery(aiTools[random_num].name)
     }
     const search = (e) => {
+        setSearchState(true)
         e.preventDefault()
         fetch(`https://ai-finder-api-p4jq.onrender.com/api/getAiToolByNameAndTags/?name=` + searchQuery)
             .then((res) => res.json())
