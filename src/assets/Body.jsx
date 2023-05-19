@@ -76,6 +76,7 @@ export default function Body({aiTools}) {
                             <div className="searchedAITools">
                                 <div className="w-full h-max">
                                     <div className="flex flex-wrap gap-x-5 gap-y-1">
+                                        {(searchState && filteredAITools.length === 0) && <div className="ml-auto mr-auto text-lg pb-4 text-primary font-semibold">No results found</div> }
                                         {filteredAITools.length > 0 && filteredAITools.map((item, index) => {
                                             return (
 
