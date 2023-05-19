@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 export default function Body({aiTools}) {
     
     const [searchQuery, setSearchQuery] = useState("")
+    const [searchState,setSearchState] = useState(false)
     const [filteredAITools, setFilteredAITools] = useState([])
 
     const SurpriseMeFunction = () => {
