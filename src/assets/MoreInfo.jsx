@@ -1,11 +1,21 @@
+import * as Loader  from "react-loader-spinner";
+import { useState , useEffect} from "react";
+
 export default function MoreInfo(props) {
+    const [loading, setLoading] = useState(true);
+    
+useEffect(() => {
+    setTimeout(() => {
+        setLoading(false);
+    }, 1500);
+}, [])
 
     const renderTags = (tag) => {
-        return tag.map((x, index) => 
-                <div key={index} className="mx-1 mb-1 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 bg-secondary text-primary rounded-full">    
-                    {x}
-                </div>
-            )
+        return tag.map((x, index) =>
+            <div key={index} className="mx-1 mb-1 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 bg-secondary text-primary rounded-full">
+                {x}
+            </div>
+        )
     }
 
     const openInNewTab = (url) => {
@@ -15,7 +25,14 @@ export default function MoreInfo(props) {
 
     return (
         <>
-            <main className="w-full bg-white dark:bg-[#111111] min-w-full min-h-full max-h-full pb-64">
+             {loading ? 
+            <Loader.ThreeCircles color="#87c0cd" wrapperStyle={{
+                "display": "flex",
+                "justify-content": "center",
+                "align-items": "center",
+            }}/>
+            :
+            (<main className="w-full bg-white dark:bg-[#111111] min-w-full min-h-full max-h-full pb-64">
                 <div className="relative flex flex-col justify-center items-start w-full p-0 h-full overflow-y-hide">
                     <div className="toaster  svelte-jyff3d"></div>
                     <div id="content" className="relative md:mx-40 mx-10 mt-5">
@@ -28,7 +45,10 @@ export default function MoreInfo(props) {
                                     </a>
                                 </li>
                                 <li className="inline-flex items-center">
-                                    
+                                    <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd">
+                                        </path>
+                                    </svg>
                                     <a className="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white" href="/profile/OpenAI">{props.name}</a>
                                 </li>
                                 {/* <li className="inline-flex items-center">
@@ -41,7 +61,7 @@ export default function MoreInfo(props) {
                             </ol>
                         </nav>
                         <div className="flex items-center">
-                            <img src={props.imgSrc} alt="Logo" className="h-32 w-32 mx-auto my-1 inline" />
+                            <img src={props.imgSrc} alt="Logo" className="h-32 w-32 mx-auto my-1 rounded-lg inline" />
                             <div className="ml-[15px] mt-1 overflow-y-hidden">
                                 <h1><strong className="text-xl dark:text-white">{props.name}</strong></h1>
 
@@ -74,7 +94,7 @@ export default function MoreInfo(props) {
                         </div>
                     </div>
                 </div>
-            </main>
+            </main>)}
         </>
     )
 }
